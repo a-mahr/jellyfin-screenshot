@@ -1,0 +1,162 @@
+/* base */
+:root {
+    --background: #000b25;
+    --color: white;
+    --primary: #87439d;
+    --primary-dark: #3e2247;
+    --primary-light: #cb63ec;
+    --secondary: #00698c;
+    --danger: #e63946;
+    --success: #2a9d8f;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--background);
+    color: var(--color);
+}
+
+a:visited {
+    color: var(--primary-dark);
+}
+a:hover {
+    color: var(--primary-light);
+}
+a:active {
+    color: var(--primary-dark);
+}
+
+input[type=text] {
+    background-color: var(--primary-dark);
+    color: var(--color);
+    border-radius: 0;
+    border: 0;
+    box-shadow: none;
+    padding: 0.2em;
+}
+
+button {
+    border-radius: 0;
+}
+
+/* layout / custom */
+header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1% 5%;
+}
+
+.main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-top: 2em;
+}
+.settings {
+    display: flex;
+    flex-direction: row;
+    padding: 0 5%;
+}
+.settings label {
+    margin: 0.5em;
+    padding: 1em;
+    border: 1px dashed var(--primary);
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    padding: 5%;
+}
+button.snap {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--background);
+    color: var(--color);
+    padding: 5em 0;
+}
+button.snap:focus {
+    color: var(--primary-light);
+    box-shadow: 0em 0em 2em var(--primary-light);
+}
+button.snap .cam {
+    display: block;
+    font-size: 1em;
+}
+button.snap .caption {
+    font-size: 3em;
+    font-family: monospace;
+}
+
+footer.status {
+    display: flex;
+    padding: 15px;
+    border-top: 0.1em dashed var(--primary);
+    line-height: 1.2em;
+    height: 2.4em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+footer.status.loading {
+    border-top: 0.2em groove var(--primary-light);
+    text-align: center;
+}
+
+footer.status.open {
+    max-height: none;
+    overflow: visible;
+}
+
+.success {
+    color: var(--success);
+}
+
+.error {
+    color: var(--danger);
+}
+
+@media (prefers-color-scheme: light) {
+    :root {
+        --background: white;
+        --color: #333;
+    }
+    input[type=text] {
+        background-color: var(--background);
+        color: var(--primary-dark);
+    }
+}
+
+@media screen and (orientation:landscape) {
+    .main {
+        flex-direction: row !important;
+    }
+    form {
+        flex: 1;
+        padding: 0 5% 5% 5%;
+    }
+    button.snap {
+        flex: 1;
+        padding: 0 !important;
+        flex-direction: row !important;
+    }
+    .settings {
+        flex-direction: column;
+    }
+    .settings label {
+        display: inline-block;
+    }
+}

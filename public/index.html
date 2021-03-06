@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Jellyfin Screenshot</title>
+    <link rel="stylesheet" href="main.css" />
+    <link rel="icon" href="data:,">
+  </head>
+
+  <body>
+    <header>
+        <span>jellyfin-screenshot</span>
+    </header>
+    <div class="main" role="main">
+        <div class="settings">
+            <label for="username">
+              username
+              <input type="text" name="username" id="username" autocomplete="username">
+            </label>
+            <label for="subs">
+                Include subtitles
+                <input type="checkbox" name="subs" id="subs">
+            </label>
+        </div>
+        <form action="/api/screenshots" method="POST">
+          <button class="snap" type="submit">
+              <pre class="cam">
+<!-- taken from https://asciiart.website/index.php?art=objects/cameras -->
+  \ | /
+ '  _  '
+-   |_|  -
+ ' | | '
+ _,_|___
+|   _ []|
+|  (O)  |
+|_______|
+              </pre>
+              <span class="caption">Capture</span>
+          </button>
+        </form>
+    </div>
+    <footer class="status">
+      <span class="result"></span>
+    </footer>
+    <script src="main.js"></script>
+  </body>
+</html>
