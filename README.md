@@ -32,10 +32,11 @@ Once everything is configured run
 
 ## Roadmap - Ideas
 
-- Tv shows support (nested output folders, `TvShowName/S01/E01/`)
+- Support subtitles format `.ass`
 - Burn Subtitles into output image
 - Batch burn / batch gen text files (ffmpeg at the filename timestamp to get the subs)
 - improve loading state
+- add offset option? (would be used to correct delayed screenshots by subtracting some ms from timestamp to seek)
 - fix footer for long error messages
 - generate movie metadata file (Movie name, year, salted hash of file?*, tmdb id, resolution, salted hash of subs?, movie duration) 
     - (*salted for privacy, if these metadata files are meant to be shared? otherwise everyone will know my filename)
