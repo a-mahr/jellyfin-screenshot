@@ -32,17 +32,14 @@ Once everything is configured run
 
 ## Roadmap - Ideas
 
-- Support subtitles format `.ass`
-- Burn Subtitles into output image
-- Batch burn / batch gen text files (ffmpeg at the filename timestamp to get the subs)
 - improve loading state
 - add offset option? (would be used to correct delayed screenshots by subtracting some ms from timestamp to seek)
 - fix footer for long error messages
-- generate movie metadata file (Movie name, year, salted hash of file?*, tmdb id, resolution, salted hash of subs?, movie duration) 
-    - (*salted for privacy, if these metadata files are meant to be shared? otherwise everyone will know my filename)
 - complementary software:
     - review the images and provide caption, or a commetary (quick, gallery-style: next, write, tick tick, next)
     - site generator (minimal options, template allowed, from: pics, subs, captions, metadata)
+- Support subtitles format `.ass`
+- Burn Subtitles into output image
 - save logs to /var/log instead of stdout
 - tests? - not a single test yet!!
 - publish docker image, setup docker-compose using image instead of build?
