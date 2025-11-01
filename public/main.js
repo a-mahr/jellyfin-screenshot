@@ -17,7 +17,16 @@ const renderStatus = () => {
   }
   statusContainer.classList.add(state.result.success ? 'success' : 'error');
   statusContainer.classList.remove(state.result.success ? 'error' : 'success');
-  messageSpan.innerText = state.result.message || '';
+  
+  const messageText = state.result.message || '';
+
+  messageSpan.innerText = '';
+
+  const link = document.createElement('a');
+  link.innerText = messageText;
+  link.href = state.result.url;
+  link.target = '_blank'; // open in new tab
+  messageSpan.appendChild(link);
 };
 
 const renderLoading = () => {
@@ -69,6 +78,7 @@ document.querySelector('form').addEventListener('submit', (e) => {
         result: {
           success: json.success,
           message: json.message,
+          url: json.url
         },
       });
     })
