@@ -11,6 +11,8 @@ const state = {
 const renderStatus = () => {
   const statusContainer = document.querySelector('.status');
   const messageSpan = document.querySelector('.status .result');
+  //messageSpan.removeChild('a');
+
   if (!state.result) {
     statusContainer.classList.remove(['success', 'error']);
     messageSpan.innerText = '';
@@ -23,11 +25,17 @@ const renderStatus = () => {
 
   messageSpan.innerText = '';
 
-  const link = document.createElement('a');
-  link.innerText = messageText;
-  link.href = state.result.url;
-  link.target = '_blank'; // open in new tab
-  messageSpan.appendChild(link);
+  if (state.result.success)
+  {
+    const link = document.createElement('a');
+    link.innerText = messageText;
+    link.href = state.result.url;
+    link.target = '_blank'; // open in new tab
+    messageSpan.appendChild(link);
+  }
+  else{
+    messageSpan.innerText=messageText;
+  }
 };
 
 const renderLoading = () => {
@@ -67,7 +75,7 @@ document.querySelector('form').addEventListener('submit', (e) => {
   //   success: true,
   //   message: 'all good',
   // }), 15000))
-  fetch('/api/screenshots', {
+  fetch('./api/screenshots', {
     method: 'POST',
     body: JSON.stringify(getOptions()),
     headers: { 'Content-Type': 'application/json' },
