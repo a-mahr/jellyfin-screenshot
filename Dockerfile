@@ -1,5 +1,6 @@
-FROM node:14-alpine
+FROM node:25-alpine
 RUN apk add  --no-cache ffmpeg
+RUN apk add --no-cache fontconfig ttf-dejavu
 
 WORKDIR /usr/src/app
 COPY package*.json ./
