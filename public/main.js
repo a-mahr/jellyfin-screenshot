@@ -1,3 +1,4 @@
+// User page controller
 const state = {
   loading: false,
   result: null,
