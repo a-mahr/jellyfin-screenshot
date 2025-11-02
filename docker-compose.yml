@@ -1,16 +1,19 @@
-version: "3.9"
 services:
   web:
+    container_name: jellyfin-screenshot
+    #user: <uid>:<gid>
     build: .
     ports:
       - "8080:8080"
     volumes:
-      - ~/jellyfin/screenshots:/usr/src/app/out
-      - ~/jellyfin/media:/media:ro
+      - ~/screenshots:/usr/src/app/out
+      - /media:/media:ro
       - logvolume01:/var/log
     environment:
       - JELLYFIN_URL=http://localhost:8096
-      - JELLYFIN_API_KEY=changethis
-      - JELLYFIN_USER=changethis
+      - JELLYFIN_API_KEY=<key from jellyfin dashboard>
+      - JELLYFIN_USER=<default user session to search>
+      - SCREENSHOTS_DIR_URL=<optional url to provide direct link to new screenshot. can be relative (/screenshots/) or absolute ("https://localhost/screenshots/")
+    restart: 'unless-stopped'
 volumes:
   logvolume01: {}
