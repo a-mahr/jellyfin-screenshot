@@ -9,7 +9,7 @@ const { takeScreenshot } = require('./lib');
 
 const fastify = Fastify({ logger: true });
 
-fastify.register(require('fastify-static'), {
+fastify.register(require('@fastify/static'), {
   root: path.join(__dirname, 'public'),
 });
 
@@ -36,7 +36,7 @@ fastify.post('/api/screenshots', async (request, reply) => {
 
 const start = async () => {
   try {
-    await fastify.listen(PORT, '0.0.0.0');
+    await fastify.listen({ port: PORT, host: '0.0.0.0' });
   } catch (err) {
     fastify.log.error(err);
     process.exit(1);
