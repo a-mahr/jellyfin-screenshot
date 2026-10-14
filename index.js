@@ -28,6 +28,7 @@ fastify.post('/api/screenshots', async (request, reply) => {
       url: path.join(screenshot.base_screenshots_url,screenshot.result.outputFilename)
     };
   } catch (error) {
+    console.log(error+""+error.stack);
     reply.code(500);
     return { success: false, message: error.toString() };
   }
