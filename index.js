@@ -18,9 +18,10 @@ fastify.post('/api/screenshots', async (request, reply) => {
     const screenshot = await takeScreenshot({
       withSubtitle: request.body.withSubtitle,
       username: request.body.username,
+      sessionId: request.body.sessionId || 0,
     });
     reply.code(201);
-    const warn = `${screenshot.sessionsForUser > 1 ? 'Warn: more than one session!! ' : ''}`;
+    const warn = `${screenshot.sessionsForUser > 1 ? 'Warning: more than one session for user!! Choose '+ 0 + "-" + (screenshot.sessionsForUser - 1) + ".\n" : ''}`;
     return {
       success: true,
       message: `${warn}Screenshot ${screenshot.result.outputFilename} saved`,

@@ -66,6 +66,7 @@ const setState = (newState) => {
 const getOptions = () => ({
   withSubtitle: document.getElementById('subs').checked,
   username: document.getElementById('username').value,
+  sessionId: document.getElementById('sessionId').value,
 });
 
 document.querySelector('form').addEventListener('submit', (e) => {
