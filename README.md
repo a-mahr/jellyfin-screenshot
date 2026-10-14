@@ -30,9 +30,10 @@ cp sample-compose.yaml compose.yaml
 
  - `~/jellyfin/screenshots` is the directory in my machine for saving the screenshots. You can later search your screenshots in `~/jellyfin/screenshots/Movie-Name/`.
 - `~/jellyfin/media` is the media folder configured in my jellyfin instance (installed via docker in the same machine). It is important that is the same jellyfin folder, otherwise the paths returned by the jellyfin api won't resolve correctly.
-- `JELLYFIN_API_KEY`: can be created in the jellyfin dashboard -> Advanced -> API Keys
+- `JELLYFIN_API_KEY`: Can be created in the jellyfin dashboard -> Advanced -> API Keys
+- `JELLYFIN_USER`: Optional. A default user to search on.
 - `JELLYFIN_URL`: Base URL at which this container can reach Jellyfin.
-- `SCREENSHOTS_DIR_URL`: Base URL at which screenshots can be retrieved. If this is not a working URL, screenshots must be retrieved manually. Consider exposing your screenshots directory for greater usability. can be relative (/screenshots/) or absolute ("https://localhost/screenshots/")
+- `SCREENSHOTS_DIR_URL`: Optional. Base URL at which screenshots can be retrieved. If this is not a working URL, screenshots must be retrieved manually. Consider exposing your screenshots directory for greater usability. Can be relative (/screenshots/) or absolute ("https://localhost/screenshots/")
 - `DEBUG`: true if additional logging is needed to investigate an issue.
 
 2. Once everything is configured run 
@@ -69,6 +70,11 @@ location / {
 ```
 ln -s /media/screenshots /var/www/screenshots
 ```
+
+# Build / Update
+- `pnpm install` for current versions of packages
+- `pnpm outdated` or `pnpm audit` for proposed upgrades
+- `docker compose up --build --force-recreate -d` to force container builds
 
 ## Roadmap - Ideas
 
