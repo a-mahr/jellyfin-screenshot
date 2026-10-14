@@ -2,7 +2,10 @@
 
 This is a tool for taking screenshots of the movie that is currently playing in jellyfin for a user.
 
-I liked the idea to capture movie moments from my phone while sitting in my couch watching the tv.
+I liked the idea to capture movie moments from my phone while sitting in my couch watching the tv, without needing to pull up the same timestamp on a second device.
+
+### Origin Notes
+This repo comes from https://gitlab.com/MatiasArriola/jellyfin-screenshot, which I cannot fork. I have preserved the license and commit history, and would be happy to transfer ownership to the original creator.
 
 ### What to expect
 
